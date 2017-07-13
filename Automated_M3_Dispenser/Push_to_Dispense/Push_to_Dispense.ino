@@ -2,10 +2,11 @@
 //one terminal of switch on Vcc. other on pin A0
 
 #define pumpPin 12
-//one terminal of Pump is grounded. Other on pin 12 
+//one terminal of Pump is grounded. Other on pin 12
 
 int switchInput;
 bool switchState = false;
+bool pumpState = false;
 
 void setup() {
   // put your setup code here, to run once:
@@ -15,23 +16,23 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  for(int i=0;i<50;i++){
+  switchState = true;
+
+  for (int i = 0; i < 50; i++) {
+
     switchInput = analogRead(switchPin);
-    if(switchInput == 1023){
-      switchState = true;
-    }
-    else{
+    if (switchInput != 1023) {
       switchState = false;
     }
     delay(5);
   }
-  
-  if(switchState == true){
-    
+
+  if (switchState == true) {
+
     digitalWrite(pumpPin, HIGH);
   }
-  else{
-    
+  else {
+
     digitalWrite(pumpPin, LOW);
   }
 }

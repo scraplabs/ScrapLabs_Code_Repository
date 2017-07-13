@@ -15,12 +15,13 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  switchState = true;
+
+
   for (int i = 0; i < 50; i++) {
+
     switchInput = analogRead(switchPin);
-    if (switchInput == 1023) {
-      switchState = true;
-    }
-    else {
+    if (switchInput != 1023) {
       switchState = false;
     }
     delay(5);

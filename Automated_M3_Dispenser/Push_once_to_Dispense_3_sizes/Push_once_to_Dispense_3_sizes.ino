@@ -25,28 +25,27 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  smallSwitchState = true;
+  mediumSwitchState = true;
+  largeSwitchState = true;
+
   for (int i = 0; i < 50; i++) {
+
     smallSwitchInput = analogRead(smallSwitchPin);
     mediumSwitchInput = analogRead(mediumSwitchPin);
     largeSwitchInput = analogRead(largeSwitchPin);
 
-    if (smallSwitchInput == 1023) {
-      smallSwitchState = true;
-    }
-    else {
+    if (smallSwitchInput != 1023) {
+
       smallSwitchState = false;
     }
 
-    if (mediumSwitchInput == 1023) {
-      mediumSwitchState = true;
-    }
-    else {
+    if (mediumSwitchInput != 1023) {
+
       mediumSwitchState = false;
     }
     if (largeSwitchInput == 1023) {
-      largeSwitchState = true;
-    }
-    else {
+
       largeSwitchState = false;
     }
     delay(5);
