@@ -44,7 +44,7 @@ void loop() {
 
       mediumSwitchState = false;
     }
-    if (largeSwitchInput == 1023) {
+    if (largeSwitchInput != 1023) {
 
       largeSwitchState = false;
     }
