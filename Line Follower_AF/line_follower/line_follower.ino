@@ -21,6 +21,8 @@ void setup() {
   pinMode(lmotorspeed, OUTPUT);
   pinMode(rmotordir, OUTPUT);
   pinMode(rmotorspeed, OUTPUT);
+  
+  pinMode(buzz, OUTPUT);
 
   lb = analogRead(lsensor);
   cb = analogRead(csensor);
