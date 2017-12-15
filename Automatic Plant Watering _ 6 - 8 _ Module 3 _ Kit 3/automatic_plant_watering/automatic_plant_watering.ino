@@ -4,6 +4,9 @@
 //only one pin for pump as we dont need to reverse it
 #define pumpPin 3
 
+//LED pin
+#define led 13
+
 //declaring variable to store sensor value later;
 int sensVal;
 
@@ -17,6 +20,7 @@ void setup() {
 
   pinMode(sensPin, INPUT);
   pinMode(pumpPin, OUTPUT);
+  pinMode(led, OUTPUT);
 
   Serial.begin(9600);
 }
@@ -29,14 +33,16 @@ void loop() {
   Serial.print(sensVal);
   Serial.print(" | ");
 
-  if (sensVal <= 50) {
+  if (sensVal <= 400) {
 
     pumpState = true;
+    digitalWrite(led, HIGH);
   }
 
-  else if (sensVal >= 150) {
+  else if (sensVal >= 600) {
 
     pumpState = false;
+    digitalWrite(led, LOW);
   }
 
   else {
